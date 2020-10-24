@@ -1,8 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import {useState, useEffect} from 'react'
 import React from 'react';
-import { StyleSheet, Text, View, Modal, TextInput, Keyboard, Button, Image, CheckBox, TouchableOpacity, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Modal, TextInput, Keyboard, Button, Image, CheckBox, TouchableOpacity, ScrollView, Dimensions} from 'react-native';
 import Questions from './Questions';
+import Music from './Music';
+import Game from './Game';
+import Movie from './Movie';
+import Sport from './Sport';
 
 
 
@@ -79,6 +83,10 @@ const handleLogin=()=>{
           </View>
           <ScrollView style={styles.mainView}>
             <Questions/>
+            <Music/>
+            <Game/>
+            <Movie/>
+            <Sport/>
           <Text>Open up App.js to start working on your app!</Text>
         </ScrollView>
       <StatusBar style="auto" />
@@ -173,7 +181,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width: '100%',
     paddingHorizontal: 3,
-    shadowColor: '#000dff',
+    shadowColor: '#0003ff',
     shadowOffset: {
       width: 0,
       height: 3
@@ -184,7 +192,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   mainView: {
-    marginTop: 95
+    marginTop: 95,
+    width: Dimensions.get('window').width,
+    
   }
 
 });
