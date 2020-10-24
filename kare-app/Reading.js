@@ -2,7 +2,7 @@ import React from 'react'
 import {View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
-const Sport=props=>{
+const Reading=props=>{
     return(
         <View style={styles.mainMusicView}>
             <View style={styles.musicHeaderView}>
@@ -10,7 +10,7 @@ const Sport=props=>{
                    Optional
                 </Text>
                 <Icon
-                name='running'
+                name='book-reader'
                 size='24'
                 style={{color: 'white'}}
                 />
@@ -19,29 +19,29 @@ const Sport=props=>{
             <View style={styles.musicListView}>
                 <TouchableOpacity>
                     <Text style={styles.songTitle}>
-                        Among Us
+                        Best Day of My Life
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <Text style={styles.songTitle}>
-                        Fall Guys
+                        Eye of The Tiger
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <Text style={styles.songTitle}>
-                        Minecraft
+                        Hall of Fame
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <Text style={styles.songTitle}>
-                        Candy Crush
+                        The Climb
                     </Text>
                 </TouchableOpacity>
             </View>
         </View>
     )
 }
-export default Sport
+export default Reading
 const styles=StyleSheet.create({
 mainMusicView: {
     width: Dimensions.get('window').width*.9,
@@ -63,7 +63,7 @@ mainMusicView: {
 musicHeaderView: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: 'pink',
+    backgroundColor: 'gray',
     padding: 10,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10
@@ -80,5 +80,15 @@ songTitle: {
     color: '#0003ff',
     fontSize: 18,
     padding: 2,
+},
+musicTextS: {
+    color: 'white',
+    fontSize: 20,
+    textShadowColor: 'black',
+    textShadowOffset:{
+        width: 2,
+        height: 2
+    },
+    textShadowRadius: 3,
 }
 })

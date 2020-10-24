@@ -7,6 +7,9 @@ import Music from './Music';
 import Game from './Game';
 import Movie from './Movie';
 import Sport from './Sport';
+import Reading from './Reading';
+import {data} from './data'
+import Footer from './Footer';
 
 
 
@@ -87,7 +90,8 @@ const handleLogin=()=>{
             <Game/>
             <Movie/>
             <Sport/>
-          <Text>Open up App.js to start working on your app!</Text>
+            <Reading/>
+            <Footer/>
         </ScrollView>
       <StatusBar style="auto" />
     </View>
@@ -201,33 +205,3 @@ const styles = StyleSheet.create({
 
 
 
-const data=[
-  {
-    DiagnosisQuestions: [
-      {
-        question: 'How often have you been bothered by feeling down, depressed, irritable, or hopeless over the last two weeks?',
-        options: ['Not at all ','SEVERAL DAYS ', 'MORE THAN HALF THE DAYS', 'NEARLY EVERY DAY']
-      },
-      {
-        question: 'How often have you been bothered that you have little interest or pleasure in doing things over the last two weeks?',
-        options: ['Not at all ','SEVERAL DAYS ', 'MORE THAN HALF THE DAYS', 'NEARLY EVERY DAY']
-      },
-      {
-        question: 'How often have you been bothered by trouble falling asleep, staying asleep, or sleeping too much over the last two weeks?',
-        options: ['Not at all ','SEVERAL DAYS ', 'MORE THAN HALF THE DAYS', 'NEARLY EVERY DAY']
-      },
-      {
-        question: 'How often have you been bothered that you have poor appetite, weight loss, or overeating over the last two weeks?',
-        options: ['Not at all ','SEVERAL DAYS ', 'MORE THAN HALF THE DAYS', 'NEARLY EVERY DAY']
-      },
-      {
-        question: 'How often have you been bothered by feeling bad about yourself – or feeling that you are a failure, or that you have let yourself or your family down over the last two weeks?',
-        options: ['Not at all ','SEVERAL DAYS ', 'MORE THAN HALF THE DAYS', 'NEARLY EVERY DAY']
-      },
-      {
-        question: 'How often have you been bothered by feeling tired, or having little energy over the last two weeks?',
-        options: ['Not at all ','SEVERAL DAYS ', 'MORE THAN HALF THE DAYS', 'NEARLY EVERY DAY']
-      },
-    ]
-  }
-]

@@ -80,5 +80,15 @@ songTitle: {
     color: '#0003ff',
     fontSize: 18,
     padding: 2,
+},
+musicTextS: {
+    color: 'white',
+    fontSize: 20,
+    textShadowColor: 'black',
+    textShadowOffset:{
+        width: 2,
+        height: 2
+    },
+    textShadowRadius: 3,
 }
 })

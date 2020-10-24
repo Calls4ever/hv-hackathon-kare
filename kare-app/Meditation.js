@@ -1,47 +1,47 @@
 import React from 'react'
 import {View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome5'
+// import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-const Sport=props=>{
+const Meditation=props=>{
     return(
         <View style={styles.mainMusicView}>
             <View style={styles.musicHeaderView}>
             <Text style={styles.musicText}>
                    Optional
                 </Text>
-                <Icon
-                name='running'
-                size='24'
+                {/* <Icon
+                // name='meditation'
+                // size='24'
                 style={{color: 'white'}}
                 />
-                
+                 */}
             </View>
             <View style={styles.musicListView}>
                 <TouchableOpacity>
                     <Text style={styles.songTitle}>
-                        Among Us
+                        Best Day of My Life
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <Text style={styles.songTitle}>
-                        Fall Guys
+                        Eye of The Tiger
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <Text style={styles.songTitle}>
-                        Minecraft
+                        Hall of Fame
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <Text style={styles.songTitle}>
-                        Candy Crush
+                        The Climb
                     </Text>
                 </TouchableOpacity>
             </View>
         </View>
     )
 }
-export default Sport
+export default Meditation
 const styles=StyleSheet.create({
 mainMusicView: {
     width: Dimensions.get('window').width*.9,
@@ -63,7 +63,7 @@ mainMusicView: {
 musicHeaderView: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: 'pink',
+    backgroundColor: 'silver',
     padding: 10,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10
@@ -80,5 +80,15 @@ songTitle: {
     color: '#0003ff',
     fontSize: 18,
     padding: 2,
+},
+musicTextS: {
+    color: 'white',
+    fontSize: 20,
+    textShadowColor: 'black',
+    textShadowOffset:{
+        width: 2,
+        height: 2
+    },
+    textShadowRadius: 3,
 }
 })

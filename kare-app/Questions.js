@@ -86,6 +86,13 @@ const styles=StyleSheet.create({
         padding: 10,
         borderRadius: 35,
         margin: 4,
+        shadowColor: 'black',
+        shadowOffset: {
+            width: 1,
+            height: 1,
+        },
+        shadowRadius: 5,
+        shadowOpacity: .8
 
     },
     optionText: {
