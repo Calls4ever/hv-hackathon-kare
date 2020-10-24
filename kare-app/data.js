@@ -1,6 +1,6 @@
 const data=[
     {
-      DiagnosisQuestions: [
+      diagnosisQuestions: [
         {
           question: 'How often have you been bothered by feeling down, depressed, irritable, or hopeless over the last two weeks?',
           options: ['Not at all ','SEVERAL DAYS ', 'MORE THAN HALF THE DAYS', 'NEARLY EVERY DAY']
@@ -25,6 +25,9 @@ const data=[
           question: 'How often have you been bothered by feeling tired, or having little energy over the last two weeks?',
           options: ['Not at all ','SEVERAL DAYS ', 'MORE THAN HALF THE DAYS', 'NEARLY EVERY DAY']
         },
+      ],
+      advices: [
+          
       ]
     }
   ]

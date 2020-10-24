@@ -1,8 +1,14 @@
 import React from 'react'
-import {View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native'
+import {View, Text, StyleSheet, Dimensions, TouchableOpacity} from 'react-native'
 import Icon from 'react-native-vector-icons/Fontisto'
+import * as Linking from 'expo-linking'
 
 const Music=props=>{
+    const handlePress=()=>{
+        
+        Linking.openURL('https://open.spotify.com/track/5Hroj5K7vLpIG4FNCRIjbP?si=qfsVdZHQTpa-gIjPElL_Vg')
+    }
+    
     return(
         <View style={styles.mainMusicView}>
             <View style={styles.musicHeaderView}>
@@ -17,22 +23,30 @@ const Music=props=>{
                 
             </View>
             <View style={styles.musicListView}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={handlePress}
+                >
                     <Text style={styles.songTitle}>
                         Best Day of My Life
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={handlePress}
+                >
                     <Text style={styles.songTitle}>
                         Eye of The Tiger
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={handlePress}
+                >
                     <Text style={styles.songTitle}>
                         Hall of Fame
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={handlePress}
+                >
                     <Text style={styles.songTitle}>
                         The Climb
                     </Text>

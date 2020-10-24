@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Dimensions} from 'react-native'
 const Footer=()=>{
     return(
         <View style={styles.footerView}>
-            <Text>Developed and Designed by</Text>
+            <Text style={{textAlign: 'center'}}>Developed and Designed by Ayoub and Hibatallah from Moroco, and Tsering From United States For Hudson Valley Tech Festival Hackathon </Text>
         </View>
     )
 }

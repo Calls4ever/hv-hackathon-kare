@@ -1,8 +1,12 @@
 import React from 'react'
 import {View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
+import * as Linking from 'expo-linking'
 
 const Game=props=>{
+    const handlePress=()=>{
+        Linking.openURL('https://apps.apple.com/us/app/among-us/id1351168404')
+    }
     return(
         <View style={styles.mainMusicView}>
             <View style={styles.musicHeaderView}>
@@ -17,12 +21,15 @@ const Game=props=>{
                 
             </View>
             <View style={styles.musicListView}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={handlePress}>
                     <Text style={styles.songTitle}>
                         Among Us
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={handlePress}
+                >
                     <Text style={styles.songTitle}>
                         Fall Guys
                     </Text>

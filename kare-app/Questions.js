@@ -1,10 +1,60 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {View, Text, TouchableOpacity, StyleSheet, Dimensions} from 'react-native'
-
+import { data } from './data'
+console.log("data coming.....",data[0].diagnosisQuestions[0].question)
 const Questions=props=>{
+    
+    const [state, setState]=useState({
+        cases: '',
+        countD: 0,
+        countA: 0,
+        countJ: 0,
+        countF: 0
+    })
+const pressHandler=(text)=>{
 
+}
+    
+const depressedHandler=()=>{
+return(
+    <View>
+            <Text style={styles.questionText}>
+                {data[0].diagnosisQuestions[state.countD].question}
+            </Text>
+            <View style={styles.optionView}>
+                {data[0].diagnosisQuestions[state.countD].options.map(o=>{
+                    return(
+                        <View style={styles.buttonView}>
+                        <TouchableOpacity
+                        onPress={()=>setState({...state, countD: state.countD+1})}
+                        >
+                            <Text style={styles.optionText}>
+                                {o}
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                    )
+                })}  
+            </View>
+        </View>
+    
+)
+}
+const renderDataQuestions=()=>{
+    if(state.countD>=data[0].diagnosisQuestions.length && state.cases==='depressed'){
+        setState({...state, cases: 'advice'})
+    }else if(state.countA>=data[0].advices.length && state.cases==='advice'){
+        setState({...state, cases: ''})
+    }
+switch(state.cases){
+    case 'depressed':return depressedHandler()
+    case '': return renderInitialQuestion()
+}
+}
+
+const renderInitialQuestion=()=>{
     return(
-        <View style={styles.mainView}>
+        <View>
             <Text style={styles.questionText}>
                 Hi, Tsering! How are you feeling today?
             </Text>
@@ -38,7 +88,9 @@ const Questions=props=>{
                     </TouchableOpacity>
                 </View>
                 <View style={styles.buttonView}>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={()=>setState({...state, cases:'depressed'})}
+                    >
                         <Text style={styles.optionText}>
                             #depressed
                         </Text>
@@ -46,6 +98,12 @@ const Questions=props=>{
                 </View>
                 
             </View>
+        </View>
+    )
+}
+    return(
+        <View style={styles.mainView}>
+            {renderDataQuestions()}
         </View>
     )
 }

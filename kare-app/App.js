@@ -10,6 +10,9 @@ import Sport from './Sport';
 import Reading from './Reading';
 import {data} from './data'
 import Footer from './Footer';
+import GIcon from 'react-native-vector-icons/FontAwesome'
+import Dashboard from './Dashboard';
+
 
 
 
@@ -17,7 +20,7 @@ import Footer from './Footer';
 export default function App() {
 const [userDetails,setUserDetails]=useState({})
 const [modalToggle, setModalToggle]=useState(true)
-const [agree, setAgree]=useState(false)
+const [dashboard, setDashboard]=useState(false)
 
 let user={username:'tsering', password: '123'}
 
@@ -33,16 +36,13 @@ const handleLogin=()=>{
         <Modal
         visible={modalToggle}
         style={styles.modal}
-        
+        animated={true}
         >
           <View style={styles.modalView}>
             <Image 
             source={require('./assets/logo.png')}
             style={styles.logo}
             />
-            <Text style={styles.welcomeText}>
-              Login
-            </Text>
             <TextInput
             style={styles.usernameInput}
             value={userDetails.username}
@@ -61,6 +61,33 @@ const handleLogin=()=>{
             secureTextEntry={true}
             onBlur={()=>Keyboard.dismiss()}
             />
+            <View style={styles.buttonGroup}>
+              <TouchableOpacity 
+              style={styles.loginButtonViewGroup}
+              onPress={handleLogin}
+              >
+                <View style={styles.iconView}>
+                  <GIcon
+                name='google'
+                size='32'
+                color='white'
+                />
+                </View>
+                
+              </TouchableOpacity>
+              <TouchableOpacity 
+              style={styles.loginButtonViewGroup}
+              onPress={handleLogin}
+              >
+                <View style={styles.iconView}>
+                  <GIcon
+                name='facebook-square'
+                size='32'
+                color='white'
+                />
+                </View>
+              </TouchableOpacity>
+            </View>
             <TouchableOpacity 
             style={styles.loginButtonView}
             onPress={handleLogin}
@@ -79,10 +106,15 @@ const handleLogin=()=>{
             style={styles.navLogo}
             source={require('./assets/navLogo.png')}
             />
-            <Image
-            style={styles.navLogoH}
-            source={require('./assets/navLogoH.png')}
-            />
+            <View style={styles.dashboardView}>
+              <TouchableOpacity
+              onPress={()=>setDashboard(true)}
+              >
+                <Text style={styles.dashboardText}>
+                  Dashboard
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
           <ScrollView style={styles.mainView}>
             <Questions/>
@@ -92,6 +124,22 @@ const handleLogin=()=>{
             <Sport/>
             <Reading/>
             <Footer/>
+            <Modal
+            visible={dashboard}
+            animationType='slide'
+            >
+            <View style={{...styles.modalView, 
+              marginTop: '15%'
+              }}>
+                <View style={{alignSelf: 'flex-end', margin:20, borderColor: '#0003ff', borderWidth:1, borderRadius: 35}}>
+                    <Button
+                    title='close X'
+                    onPress={()=>setDashboard(false)}
+                    />
+                </View>
+              <Dashboard/>
+              </View>
+            </Modal>
         </ScrollView>
       <StatusBar style="auto" />
     </View>
@@ -118,8 +166,6 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 5,
     shadowOpacity: .8,
-    borderTopColor: '#0003ff',
-    borderTopWidth: 2,
     borderTopRightRadius: 60,
     borderTopLeftRadius: 60,
     
@@ -153,18 +199,20 @@ const styles = StyleSheet.create({
   },
   logo: {
     maxWidth: 220,
-    height: 220
+    height: 220,
+    marginBottom: -35
   },
   loginButtonView: {
-    borderColor: '#000dff',
+    backgroundColor: '#000dff',
     borderWidth: 1,
     marginTop: 15,
     width: 230,
-    borderRadius: 10
+    borderRadius: 10,
+    padding: 5
 
   },
   loginButton: {
-    color: '#000dff',
+    color: 'white',
     fontSize: 23,
     textAlign: "center",
     padding: 4
@@ -179,7 +227,7 @@ const styles = StyleSheet.create({
   },
   navView: {
     flexDirection: 'row',
-    alignItems: 'baseline',
+    alignItems: 'center',
     position: 'absolute',
     top: 40,
     backgroundColor: 'white',
@@ -193,12 +241,42 @@ const styles = StyleSheet.create({
     shadowRadius: 1.5,
     shadowOpacity: .7,
     zIndex: 2,
-    justifyContent: 'space-around'
+    justifyContent: 'space-between',
   },
   mainView: {
     marginTop: 95,
     width: Dimensions.get('window').width,
     
+  },
+  buttonGroup: {
+    width: Dimensions.get('window').width,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+  loginButtonViewGroup: {
+    backgroundColor: '#000dff',
+    borderWidth: 1,
+    marginTop: 15,
+    width: 130,
+    borderRadius: 10
+
+  },
+  iconView: {
+    padding: 5,
+    alignItems: 'center'
+  },
+  dashboardView: {
+    borderColor: '#0003ff',
+    borderWidth: 1,
+    borderRadius: 35,
+    padding: 5
+     
+
+  },
+  dashboardText: {
+    color: '#0003ff',
+    padding: 5,
+    fontSize: 18
   }
 
 });
